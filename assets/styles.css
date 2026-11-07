@@ -1,0 +1,827 @@
+
+/* =====================================
+FUENTES
+========================================*/
+/* 1. Importación de fuentes de Google (SIEMPRE EN LA LÍNEA 1) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Syne:wght@700;800&display=swap');
+
+
+/* 2. Variables del proyecto */
+:root {
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --verde-limon: #ccff00;
+  /* --fondo-oscuro: #0b0b16; */
+  --fondo-oscuro: radial-gradient(rgb(0, 62, 66), rgb(0, 0, 17)); 
+}
+
+/* 3. Estilos base */
+body {
+  font-family: var(--font-body);
+  color: #ffffff;
+  background-color: var(--fondo-oscuro);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;  
+}
+
+/* ==========================================
+   ESTILOS GENERALES - ROTA DANCE
+   ========================================== */
+body {
+  background-image: radial-gradient(rgb(0, 62, 66), rgb(0, 0, 17)); 
+  color: #ffffff;
+  /* font-family: 'playfair', 'montserrat', serif, -apple-system, sans-serif; */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+}
+
+h3 {
+  color: var(--verde-limon);
+  margin-top: 0;
+}
+
+.pricing-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pricing-header img {
+  max-width: 140px;
+  margin-bottom: 15px;
+}
+
+.pricing-header h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.pricing-header p {
+  color: #b0b0b0;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   TARJETAS DE PRECIOS Y BENEFICIOS
+   ========================================== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(204, 255, 0, 0.4);
+  border-radius: 16px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.pricing-card p {
+  flex-basis: 1;
+}
+
+.pricing-card .btn-membership,
+.pricing-card .btn-donation {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  padding: 15px 15px;
+  margin-top: auto;
+  text-align: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--verde-limon);
+}
+
+.pricing-card.featured {
+  background-color: rgba(204, 255, 0, 0.04);
+  border-color: var(--verde-limon);
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.15);
+}
+
+.card-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #cccccc;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.card-badge.highlight {
+  background-color: #ffffff;
+  color: #121212;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #a0a0a0;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  flex-grow: 1;
+}
+
+.benefits-list li {
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: #d0d0d0;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+.btn-membership {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.btn-membership:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-membership.primary {
+  background-color: #ffffff;
+  color: #121212;
+  border: none;
+}
+
+.btn-membership.primary:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   BANNER CONVIVENCIA
+   ========================================== */
+.community-banner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  border: 1px solid var(--verde-limon);
+  background: rgba(204, 255, 0, 0.03);
+  padding: 25px;
+}
+
+.banner-icon { 
+  font-size: 2rem; 
+}
+
+.banner-text h4 { 
+  margin: 0 0 4px 0; 
+  font-size: 1.2rem; 
+  color: var(--verde-limon);
+}
+
+.banner-text p { 
+  margin: 0; 
+  font-size: 0.9rem; 
+  color: #a0a0a0; 
+}
+
+/* ==========================================
+   FORMULARIO DESPLEGABLE Y CAMPOS
+   ========================================== */
+.form-container {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 30px;
+  display: none;
+}
+
+.form-container.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Grilla de selección múltiple de géneros */
+.generos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.generos-grid label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #d0d0d0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.generos-grid input[type="checkbox"] {
+  accent-color: var(--verde-limon);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ==========================================
+   DONACIÓN LIBRE
+   ========================================== */
+.donation-box {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
+
+.donation-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.donation-box p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  font-family: 'montserrat', sans-serif, serif;
+}
+
+.btn-donation {
+  display: inline-block;
+  padding: 16px 36px;
+  margin-top: 15px;
+  color: var(--verde-limon);
+  background: transparent;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--verde-limon);
+  border-radius: 15px;
+  font-family: 'montserrat', sans-serif, serif;
+}
+
+.btn-donation:hover {
+  color: #000011;
+  border-color: var(--verde-limon);
+  background-color: var(--verde-limon);
+  box-shadow: 0 0 12px var(--verde-limon-glow);
+}
+
+/* ==========================================
+   COLOR DE ACENTO: VERDE LIMÓN (ELECTRIC LIME)
+   ========================================== */
+:root {
+  --verde-limon: #ccff00;
+  --verde-limon-hover: #b3e600;
+  --verde-limon-glow: rgba(204, 255, 0, 0.2);
+}
+
+.pricing-card.featured {
+  border-color: var(--verde-limon);
+  box-shadow: 0 0 20px var(--verde-limon-glow);
+}
+
+.card-badge.highlight {
+  background-color: var(--verde-limon);
+  color: #000011;
+  font-weight: 800;
+}
+
+.btn-membership.primary {
+  background-color: var(--verde-limon);
+  color: #000011;
+  border: 2px solid var(--verde-limon);
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-membership.primary:hover {
+  background-color: #000011;
+  color: var(--verde-limon);
+  border-color: var(--verde-limon);
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.btn-membership {
+  border-color: rgba(204, 255, 0, 0.4);
+  color: #ffffff;
+}
+
+.btn-membership:hover {
+  border-color: var(--verde-limon);
+  color: var(--verde-limon);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--verde-limon);
+  box-shadow: 0 0 8px var(--verde-limon-glow);
+}
+
+.banner-text h4,
+.price {
+  color: #ffffff;
+}
+
+.price span {
+  color: var(--verde-limon);
+}
+
+
+/* ==========================================
+   ESTILOS PÁGINAS LEGALES
+   ========================================== */
+.legal-section {
+  max-width: 800px;
+  line-height: 1.7;
+  color: #d0d0d0;
+}
+
+.legal-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legal-title {
+  color: var(--verde-limon);
+  margin-top: 25px;
+}
+
+.legal-box > .legal-title:first-child {
+  margin-top: 0;
+}
+
+.legal-list {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.legal-btn-container {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.legal-btn {
+  display: inline-block;
+  width: auto;
+  padding: 12px 30px;
+  text-decoration: none;
+}
+
+
+/* ==========================================
+   ESTILOS PÁGINA DE AGRADECIMIENTO (GRACIAS)
+   ========================================== */
+.thanks-logo {
+  max-width: 130px;
+  height: auto;
+  margin: 20px 0;
+  transition: transform 0.2s ease;
+}
+
+.thanks-logo:hover {
+  transform: scale(1.05);
+}
+
+.social-section {
+  margin: 40px auto;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:15px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.social-btn svg {
+  /* Offset-X | Offset-Y | Blur-Radius | Color */
+  filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.6));
+  transition: filter 0.3s ease, transform 0.3s ease;
+
+}
+
+.social-btn:hover svg {
+  filter: drop-shadow(0px 0px 1px rgba(204, 255, 0, 0.8));
+  transform: scale(1.1); /* Hace que el icono crezca un pelín de forma fluida */
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--verde-limon);
+  color: var(--verde-limon);
+  transform: translateY(-2px);
+}
+
+.btn-home {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--verde-limon);
+  text-decoration: none;
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.btn-home:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+/* Estructura general del footer */
+/* Estructura general del footer */
+.site-footer {
+  background-color: #000011;
+  border-top: 1px solid rgba(204, 255, 0, 0.15); /* Línea superior sutil en verde limón */
+  padding: 30px 20px 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Cuadrícula de columnas (Comunidad a la izq, Legal a la der) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador discreto */
+}
+
+/* Títulos de cada columna (Comunidad / Legal) */
+.footer-col h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ccff00; /* Verde limón */
+  margin-bottom: 10px;
+}
+
+/* Listas de enlaces dentro de las columnas */
+.footer-col .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col .footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-col .footer-links a {
+  color: #b0b0c0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+/* Efecto elegante al pasar el ratón */
+.footer-col .footer-links a:hover {
+  color: #ccff00;
+  transform: translateX(4px); /* Desplazamiento sutil a la derecha */
+}
+
+/* Bloque inferior de derechos reservados */
+.footer-bottom {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    text-align: center; /* Centra los títulos y enlaces en móvil */
+  }
+  
+  .footer-col .footer-links a:hover {
+    transform: none; /* En pantallas táctiles mejor quitamos el desplazamiento lateral para evitar tirones */
+  }
+}
+
+/* Banner de Cookies fijo abajo */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b0b16;
+  border-top: 1px solid var(--verde-limon);
+  color: #ffffff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 9999;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.cookie-banner p {
+  margin: 0;
+  padding-right: 20px;
+}
+
+.cookie-banner a {
+  color: var(--verde-limon);
+  text-decoration: underline;
+}
+
+.btn-cookie {
+  background-color: var(--verde-limon);
+  color: #000011;
+  border: none;
+  padding: 8px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.btn-cookie:hover {
+  opacity: 0.85;
+}
+
+/* Ocultar banner mediante clase JS */
+.cookie-banner.hidden {
+  display: none;
+}
+
+/* ==========================================
+   PRELOADER
+   ========================================== */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0b16; /* Tu fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* Por encima de todo */
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Ocultar preloader */
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animación del círculo giratorio */
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 4px solid rgba(204, 255, 0, 0.15);
+  border-top-color: var(--verde-limon);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   FLECHA VOLVER ARRIBA (SCROLL TO TOP)
+   ========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--verde-limon);
+  color: #000011;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Estado visible al hacer scroll */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0px -1px 3px var(--verde-limon-hover),
+    -1px 0px 3px var(--verde-limon-hover);
+  border: 3px solid #12121282;  
+}
+
+/* Cabecera fija o limpia arriba */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 17, 0.95);
+  border-bottom: 1px solid rgba(204, 255, 0, 0.15);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--verde-limon);
+}

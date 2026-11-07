@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazte Socio | Rota Dance</title>
+  <link rel="stylesheet" href="assets/styles.css"> 
+</head>
+<body>
+
+    <!-- Preloader (Al principio del <body>) -->
+  <div id="preloader" class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <div id="nav-placeholder"></div>
+  
+  <section class="pricing-section">
+    <div class="pricing-header">
+      <a href="index.html">
+        <img src="assets/img/Rota Dance logo dorado.png" alt="Rota Dance Logo">
+      </a>
+      <h2>Hazte Socio de Rota Dance</h2>
+      <p>El apoyo de todos nos hace seguir y crecer. ¡Gracias por pertenecer a nuestra comunidad!</p>
+    </div>
+
+    <!-- 1. Tarjetas de Cuotas -->
+    <div class="pricing-grid">
+      
+      <!-- Colaborador -->
+      <div class="pricing-card">
+        <span class="card-badge">Comunidad</span>
+        <h3>Socio Colaborador</h3>
+        <div class="price">30€ <span>/ año</span></div>
+        <ul class="benefits-list">
+          <li>🏪 Posibilidad de incluir tu tienda/stand en eventos</li>
+          <li>🎁 Regalo de merchandising oficial de la asociación</li>
+          <li>📢 Comunicado directo de todos los eventos y noticias</li>
+          <li>🎟️ Sorteos exclusivos durante todo el año</li>
+        </ul>
+        <button type="button" class="btn-membership" onclick="seleccionarCuota('colaborador', 'https://buy.stripe.com/5kQaEX65q6gV3Lzcsk0Jq04')">
+          Seleccionar Colaborador
+        </button>
+      </div>
+
+      <!-- DJ / Productor -->
+      <div class="pricing-card featured">
+        <span class="card-badge highlight">Recomendado a artistas</span>
+        <h3>Socio DJ / Productor</h3>
+        <div class="price">50€ <span>/ año</span></div>
+        <ul class="benefits-list">
+          <li>✨ <strong>Todos los beneficios</strong> del Socio Colaborador</li>
+          <li>🎧 Posibilidad de pinchar en los eventos organizados</li>
+          <li>📲 Promoción de tu contenido en redes y canales</li>
+          <li>💼 Recomendación directa si buscan DJs/locales</li>
+        </ul>
+        <button type="button" class="btn-membership primary" onclick="seleccionarCuota('dj', 'https://buy.stripe.com/eVq8wP1Pa9t70zn3VO0Jq02')">
+          Seleccionar DJ / Productor
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Banner Convivencia -->
+    <div class="community-banner">
+      <div class="banner-icon">🎉</div>
+      <div class="banner-text">
+        <h4>¡Quedada anual de convivencia!</h4>
+        <p>Comida, música y buen ambiente. Gratis para todos los socios (los no socios pagan entrada).</p>
+      </div>
+    </div>
+
+    <!-- 2. Formulario de Datos -->
+    <div id="formularioDatos" class="form-container">
+      <h3 id="tituloFormulario" style="margin-top:0; margin-bottom: 20px;">Tus datos de Socio</h3>
+      
+      <form id="socioForm" onsubmit="procesarPago(event)">
+        <div class="form-group">
+          <label for="nombre">Nombre y Apellidos *</label>
+          <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono / WhatsApp *</label>
+          <input type="tel" id="telefono" required placeholder="Ej: +34 612 345 678">
+          <small style="color: var(--verde-limon); font-size: 0.8rem; display: block; margin-top: 4px;">📱 Válido para España y prefijos internacionales (mínimo 9 dígitos).</small>
+        </div>
+
+        <div class="form-group">
+          <label for="extra">Nombre de Tienda / Stand o Nombre Artístico (Opcional)</label>
+          <input type="text" id="extra" placeholder="Ej: DJ Sound / Tienda Rota">
+        </div>
+
+        <!-- Selección múltiple de géneros y subgéneros -->
+        <div class="form-group" id="seccion-generos" style="margin-bottom: 20px;">
+          <label>Estilos y Subgéneros de Música Electrónica (Puedes marcar varios):</label>
+          <div class="generos-grid">
+            <label><input type="checkbox" name="generos" value="House"> House</label>
+            <label><input type="checkbox" name="generos" value="Tech House"> Tech House</label>
+            <label><input type="checkbox" name="generos" value="Deep House"> Deep House</label>
+            <label><input type="checkbox" name="generos" value="Progressive House"> Progressive House</label>
+            <label><input type="checkbox" name="generos" value="Afro House"> Afro House</label>
+            <label><input type="checkbox" name="generos" value="Techno"> Techno</label>
+            <label><input type="checkbox" name="generos" value="Melodic Techno"> Melodic Techno</label>
+            <label><input type="checkbox" name="generos" value="Hard Techno"> Hard Techno</label>
+            <label><input type="checkbox" name="generos" value="Acid Techno"> Acid Techno</label>
+            <label><input type="checkbox" name="generos" value="Minimal / Deep Tech"> Minimal / Deep Tech</label>
+            <label><input type="checkbox" name="generos" value="Trance"> Trance</label>
+            <label><input type="checkbox" name="generos" value="Psytrance"> Psytrance</label>
+            <label><input type="checkbox" name="generos" value="Drum & Bass"> Drum & Bass</label>
+            <label><input type="checkbox" name="generos" value="Dubstep"> Dubstep</label>
+            <label><input type="checkbox" name="generos" value="Hardstyle"> Hardstyle</label>
+            <label><input type="checkbox" name="generos" value="Electro"> Electro</label>
+            <label><input type="checkbox" name="generos" value="Breakbeat"> Breakbeat</label>
+            <label><input type="checkbox" name="generos" value="Ambient / Chillout"> Ambient / Chillout</label>
+            <label><input type="checkbox" name="generos" value="otro" id="check-otro" onchange="toggleOtroGenero()"> <strong style="color: var(--verde-limon);">Otro (Especificar)</strong></label>
+          </div>
+        </div>
+
+        <!-- Campo libre si marcan "Otro" -->
+        <div class="form-group" id="grupo-otro-genero" style="display: none; margin-bottom: 20px;">
+          <label for="genero-custom">Especifica tus estilos:</label>
+          <input type="text" id="genero-custom" placeholder="Ej: EBM, Industrial, Hi-NRG...">
+        </div>
+
+        <button type="submit" class="btn-membership primary">Continuar al Pago Seguro con Stripe</button>
+      </form>
+    </div>
+
+    <!-- 3. Donación Libre -->
+    <div class="donation-box">
+      <h3>¿Solo quieres aportar tu granito de arena?</h3>
+      <p>Si no deseas ninguna membresía pero quieres apoyar la cultura electrónica en Rota, puedes realizar una donación libre, ¡GRACIAS!.</p>
+      <a href="https://donate.stripe.com/5kQ5kD3Xi20F6XL1NG0Jq03" class="btn-donation">Hacer una Donación Libre</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+    <!-- Banner de Cookies RGPD -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      Utilizamos cookies propias y de terceros para mejorar nuestros servicios y analizar tus hábitos de navegación. Si continuas navegando, consideramos que aceptas su uso. 
+      <a href="politica-privacidad.html" target="_blank">Más información</a>.
+    </p>
+    <button id="accept-cookies" class="btn-cookie">Aceptar</button>
+  </div>
+
+  <!-- Flecha para subir arriba (Al final del <body>, junto al banner de cookies) -->
+  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+    ↑
+  </button>
+  
+  <script src="assets/script.js"></script>
+
+</body>
+</html>
