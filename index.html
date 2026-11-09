@@ -116,9 +116,8 @@
     /* Título principal */
     h1 {
       font-family: var(--font-titulo);
-      font-size: clamp(1.5rem, 4vw, 2rem);
+      /* font-size: clamp(1.5rem, 4vw, 2rem); */
       font-weight: 800;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
       /* margin-bottom: 1rem;
       color: var(--texto-blanco); */
@@ -168,6 +167,31 @@
       box-shadow: 0 0 12px var(--verde-limon), 0 0 5px rgb(255, 255, 255);
       transform: translateY(-2px);
     }
+
+/* =====================================
+          RESPONSIVE
+   ===================================== */
+    @media (max-width: 768px){
+          html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+          }
+
+          h1 {
+            font-size: 0.8rem !important; /* Baja el tamaño para que quepa holgado */
+            line-height: 1.25 !important; /* Da espacio entre líneas para que no se pisen */
+            text-align: center !important; /* Garantiza el centrado en el móvil */
+            word-wrap: break-word !important; /* Si alguna palabra es muy larga la corta antes de que se salga */
+            padding-left: 10px;
+            padding-right: 10px; 
+            padding: 10px;
+            overflow-wrap: break-word !important;
+            max-width: 100% !important;
+            letter-spacing: 1px;
+          }
+        }
+        
   </style>
 </head>
 <body>
@@ -181,7 +205,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 120 120"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m42 22 6 6m-4-8 8 8-12 12-8-8Zm34 0c-4 4-4 8 0 10L66 42l-6-6 12-12c-2-4 2-6 6-4"/><circle cx="60" cy="18" r="1.5" fill="#ccff00"/><rect width="70" height="52" x="25" y="42" fill="var(--fondo-color)" stroke="var(--verde-limon)" stroke-width="2.2" rx="6"/><g class="vinyl-disc"><circle cx="48" cy="68" r="18" stroke="#ccff00" stroke-width="1.8"/><circle cx="48" cy="68" r="12" stroke="#fff" stroke-dasharray="3 2" stroke-width="1"/><circle cx="48" cy="68" r="5" stroke="#ccff00" stroke-width="1.5"/><circle cx="48" cy="68" r="1.5" fill="#fff"/></g><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M82 52v14l-10 8"/><circle cx="82" cy="52" r="3" fill="var(--fondo-color)" stroke="#ccff00" stroke-width="1.5"/><path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M82 78v10"/><rect width="4" height="3" x="80" y="81" fill="#ccff00" rx=".5"/><circle cx="32" cy="50" r="1.5" fill="#ccff00"/><circle cx="38" cy="50" r="1.5" fill="#ccff00"/><path stroke="#ccff00" stroke-linecap="round" stroke-width="1.5" d="M14 60q4-5 4 4m0 0a2.5 2.5 0 1 1-2.5-2.5M102 68q4-5 4 4m0 0a2.5 2.5 0 1 1-2.5-2.5"/><path stroke="#fff" stroke-linecap="round" stroke-width="1.8" d="m35 100 10 8m30 0 10-8"/></svg>
     </div>
 
-    <h1>SITIO WEB<br>EN<br>CONSTRUCCIÓN</h1>
+    <h1>SITIO WEB EN CONSTRUCCIÓN</h1>
 
     <p>Estamos afinando los ritmos. Volvemos muy pronto con la plataforma completa para la inscripción de socios y DJs... y más!!.</p>
 
