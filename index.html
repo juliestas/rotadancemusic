@@ -1,78 +1,197 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rota Dance | Asociación de Música Electrónica</title>
-  <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" type="image/png" sizes="" href="assets/img/favicon rota dance2026.png">
+
+  <title>Rota Dance | Sitio en Construcción</title>
+  
+  <!-- Carga directa de fuentes por si no quieres usar @import aquí -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #0a0d0f;
+      --card-bg: #111518;
+      --verde-limon: #ccff00;
+      --texto-blanco: #ffffff;
+      --texto-gris: #a0a5a8;
+      --font-titulo: 'Syne', sans-serif;
+      --font-cuerpo: 'Montserrat', sans-serif;
+      --fondo-color: radial-gradient(rgb(0, 62, 66), rgb(0, 0, 17)); 
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: var(--fondo-color);
+      color: var(--texto-blanco);
+      font-family: var(--font-cuerpo);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Resplandor ambiental de fondo */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: var(--verde-limon);
+      filter: blur(180px);
+      opacity: 0.12;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      z-index: 1;
+    }
+
+    /* Nombre de la marca arriba */
+    .brand-title {
+      font-family: var(--font-titulo);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      /* color: var(--verde-limon); */
+      color: var(--texto-blanco);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 8px var(--verde-limon);
+    }
+
+    /* Caja de la ilustración SVG neón */
+    .illustration-box {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 2rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .illustration-box svg {
+      width: 100%;
+      height: 100%;
+      /* filter: drop-shadow(0 0 4px var(--verde-limon)); */
+      filter: drop-shadow(0 0 2px var(--verde-limon));
+    }
+
+    /* Animación flotante suave */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Animación de rotación del vinilo interno */
+    .vinyl-disc {
+      transform-origin: 48px 48px;
+      animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Título principal */
+    h1 {
+      font-family: var(--font-titulo);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      /* margin-bottom: 1rem;
+      color: var(--texto-blanco); */
+      text-align: center; /* Garantiza alineación central perfecta del texto */
+      letter-spacing: 1px; /* Ajustamos el espaciado para que no descuadre las palabras largas */
+      /* Ajusta el ancho para que ocupe todo el contenedor sin salirse */
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 1.2rem auto;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    /* Descripción */
+    p {
+      color: var(--texto-gris);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 440px;
+      margin: 0 auto 2.2rem auto;
+      font-weight: 400;
+    }
+
+    /* Botón Linktree neón */
+    .neon-btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background-color: transparent;
+      color: var(--verde-limon);
+      border: 1.5px solid var(--verde-limon);
+      border-radius: 6px;
+      font-family: var(--font-titulo);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px var(--verde-limon);
+    }
+
+    .neon-btn:hover {
+      background-color: var(--verde-limon);
+      color: var(--bg-color);
+      font-size: medium;
+      font-weight: bold;
+      box-shadow: 0 0 12px var(--verde-limon), 0 0 5px rgb(255, 255, 255);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
-  
-    <!-- Preloader (Al principio del <body>) -->
-  <div id="preloader" class="preloader">
-    <div class="spinner"></div>
-  </div>
-  <div id="nav-placeholder"></div>
-  <section class="pricing-section">
-    <!-- Header principal -->
-    <div class="pricing-header">
-      <img src="assets/img/Rota Dance logo dorado.png" alt="Rota Dance Logo">
-      <h2 >Música, Comunidad & Cultura Electrónica</h2>
-      <p>
-        Impulsamos el talento local y los sonidos de vanguardia en Rota. Un espacio donde DJs, productores y amantes del género se unen para hacer vibrar nuestra ciudad.
-      </p>
+
+  <main class="container">
+    
+    <div class="brand-title">ROTA DANCE</div>
+
+    <!-- Ilustración Neón hecha con SVG Puro -->
+    <div class="illustration-box">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 120 120"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m42 22 6 6m-4-8 8 8-12 12-8-8Zm34 0c-4 4-4 8 0 10L66 42l-6-6 12-12c-2-4 2-6 6-4"/><circle cx="60" cy="18" r="1.5" fill="#ccff00"/><rect width="70" height="52" x="25" y="42" fill="var(--fondo-color)" stroke="var(--verde-limon)" stroke-width="2.2" rx="6"/><g class="vinyl-disc"><circle cx="48" cy="68" r="18" stroke="#ccff00" stroke-width="1.8"/><circle cx="48" cy="68" r="12" stroke="#fff" stroke-dasharray="3 2" stroke-width="1"/><circle cx="48" cy="68" r="5" stroke="#ccff00" stroke-width="1.5"/><circle cx="48" cy="68" r="1.5" fill="#fff"/></g><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M82 52v14l-10 8"/><circle cx="82" cy="52" r="3" fill="var(--fondo-color)" stroke="#ccff00" stroke-width="1.5"/><path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M82 78v10"/><rect width="4" height="3" x="80" y="81" fill="#ccff00" rx=".5"/><circle cx="32" cy="50" r="1.5" fill="#ccff00"/><circle cx="38" cy="50" r="1.5" fill="#ccff00"/><path stroke="#ccff00" stroke-linecap="round" stroke-width="1.5" d="M14 60q4-5 4 4m0 0a2.5 2.5 0 1 1-2.5-2.5M102 68q4-5 4 4m0 0a2.5 2.5 0 1 1-2.5-2.5"/><path stroke="#fff" stroke-linecap="round" stroke-width="1.8" d="m35 100 10 8m30 0 10-8"/></svg>
     </div>
 
-    <!-- Banner destacado / Próximos Eventos -->
-    <div class="community-banner" style="border: 1px solid var(--verde-limon); background: rgba(204, 255, 0, 0.03); padding: 25px;">
-      <div class="banner-icon">🔊</div>
-      <div class="banner-text">
-        <h4>¡Únete a la escena local!</h4>
-        <p>Participa en nuestras sesiones, talleres y la quedada anual de convivencia con comida y buena música.</p>
-      </div>
-    </div>
+    <h1>SITIO WEB<br>EN<br>CONSTRUCCIÓN</h1>
 
-    <!-- Tarjetas de Acceso Rápido -->
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="card-badge">Únete al movimiento</span>
-        <h3>Hazte Socio</h3>
-        <p style="color: #b0b0b0; margin-bottom: 25px; flex-grow: 1;">
-          Apoya la cultura electrónica y accede a beneficios exclusivos, sorteos, espacios para tu tienda o cabina en los eventos.
-        </p>
-        <a href="registro.html" class="btn-membership primary" style="text-decoration: none;">Ver Tarifas e Inscribirse</a>
-      </div>
+    <p>Estamos afinando los ritmos. Volvemos muy pronto con la plataforma completa para la inscripción de socios y DJs... y más!!.</p>
 
-      <div class="pricing-card">
-        <span class="card-badge">Comunidad</span>
-        <h3>Donación Libre</h3>
-        <p style="color: #b0b0b0; margin-bottom: 25px; flex-grow: 1;">
-          ¿Quieres contribuir al desarrollo de eventos y proyectos sin suscripción anual? Cualquier aportación nos ayuda a crecer.
-        </p>
-        <a href="https://donate.stripe.com/5kQ5kD3Xi20F6XL1NG0Jq03" class="btn-donation" style="text-align: center; margin-top: 0;">Hacer una donación</a>
-      </div>
+    <a href="https://linktree.com/rotadancemusic" target="_blank" rel="noopener noreferrer" class="neon-btn">
+      Síguenos en Linktree
+    </a>
 
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Banner de Cookies RGPD -->
-  <div id="cookie-banner" class="cookie-banner">
-    <p>
-      Utilizamos cookies propias y de terceros para mejorar nuestros servicios y analizar tus hábitos de navegación. Si continuas navegando, consideramos que aceptas su uso. 
-      <a href="politica-privacidad.html" target="_blank">Más información</a>.
-    </p>
-    <button id="accept-cookies" class="btn-cookie">Aceptar</button>
-  </div>
-
-  <!-- Flecha para subir arriba (Al final del <body>, junto al banner de cookies) -->
-  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
-    ↑
-  </button>
-
-  <script src="assets/script.js"></script>
+  </main>
 
 </body>
 </html>
+
+
